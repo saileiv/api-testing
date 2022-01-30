@@ -31,10 +31,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int TTL_IN_SECONDS = 3 * 60; // Three minutes.
 
-    private static final Strategy PUB_SUB_STRATEGY = new Strategy.Builder()
-            .setTtlSeconds(TTL_IN_SECONDS).build();
     private static final String MISSING_API_KEY = "It's possible that you haven't added your" +
             " API-KEY. See  " +
             "https://developers.google.com/nearby/messages/android/get-started#step_4_configure_your_project";
@@ -57,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         // The message being published is simply the Build.MODEL of the device. But since the
         // Messages API is expecting a byte array, you must convert the data to a byte array.
-        mMessage = new Message(Build.MODEL.getBytes(Charset.forName("UTF-8")));
+        mMessage = new Message("Hello World!".getBytes(Charset.forName("UTF-8")));
 
         mMessageListener = new MessageListener() {
             @Override
@@ -106,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Subscribing");
         mNearbyDevicesArrayAdapter.clear();
         SubscribeOptions options = new SubscribeOptions.Builder()
-                .setStrategy(PUB_SUB_STRATEGY)
+
                 .setCallback(new SubscribeCallback() {
                     @Override
                     public void onExpired() {
@@ -123,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     private void publish() {
         Log.i(TAG, "Publishing");
         PublishOptions options = new PublishOptions.Builder()
-                .setStrategy(PUB_SUB_STRATEGY)
+
                 .setCallback(new PublishCallback() {
                     @Override
                     public void onExpired() {

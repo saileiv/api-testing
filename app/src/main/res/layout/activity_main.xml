@@ -21,7 +21,7 @@
         android:id="@+id/publish_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/share_device_information" />
+        android:text="@string/send_message" />
 
     <ListView
         android:id="@+id/nearby_devices_list_view"
