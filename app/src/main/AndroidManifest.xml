@@ -11,7 +11,7 @@
 
         <meta-data
             android:name="com.google.android.nearby.messages.API_KEY"
-            android:value="AIzaSyAd1cI4VtBL5mSnZ_2KqofqCmRP5ArCeYk" />
+            android:value="AIzaSyDFUQcSTphq_Cq0BitQW4zLx12twjva3SY" />
 
         <activity android:name=".MainActivity"
             android:exported="true">
